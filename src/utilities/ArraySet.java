@@ -6,28 +6,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
+import java.util.Spliterator;
 
 public class ArraySet<E> implements List<E>, Set<E>
 {
 	protected ArrayList<E> _list;
 
 	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int size() {return _list.size();}
 
 	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean isEmpty() {return _list.isEmpty();}
 
 	@Override
-	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean contains(Object o) {return indexOf(o)!= -1;}
 
 	@Override
 	public Iterator<E> iterator() {
@@ -49,14 +41,20 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean add(E e) {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.contains(e))
+			return false;
+		int count = 0;
+		while(count < _list.size() && !(_list.get(count).equals(e))) {
+			count++;
+		}
+		
+		_list.add(count, e);
+		return true;
 	}
 
 	@Override
 	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.remove(o);
 	}
 
 	@Override
@@ -72,7 +70,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	@Override
-	public boolean retainAll(Collection<?> c) {
+	public boolean addAll(int index, Collection<? extends E> c) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -84,22 +82,18 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean addAll(int index, Collection<? extends E> c) {
+	public boolean retainAll(Collection<?> c) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public E get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+	public void clear() {
+		_list.clear();
 	}
+
+	@Override
+	public E get(int index) {return _list.get(index);}
 
 	@Override
 	public E set(int index, E element) {
@@ -120,10 +114,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	@Override
-	public int indexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int indexOf(Object o) {return _list.indexOf(o);}
 
 	@Override
 	public int lastIndexOf(Object o) {
@@ -147,6 +138,12 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public List<E> subList(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Spliterator<E> spliterator() {
+		// TODO Auto-generated method stub
+		return List.super.spliterator();
 	}
 
 }
