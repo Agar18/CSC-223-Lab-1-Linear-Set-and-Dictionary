@@ -23,20 +23,17 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.iterator();
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.toArray(a);
 	}
 
 	@Override
@@ -59,32 +56,27 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.containsAll(c);
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.addAll(c);
 	}
 
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.addAll(index, c);
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.removeAll(c);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.retainAll(c);
 	}
 
 	@Override
@@ -97,20 +89,17 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public E set(int index, E element) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.set(index, element);
 	}
 
 	@Override
 	public void add(int index, E element) {
-		// TODO Auto-generated method stub
-		
+		_list.add(index, element);
 	}
 
 	@Override
 	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.remove(index);
 	}
 
 	@Override
@@ -118,32 +107,27 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return _list.lastIndexOf(o);
 	}
 
 	@Override
 	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.listIterator();
 	}
 
 	@Override
 	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.listIterator(index);
 	}
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.subList(fromIndex, toIndex);
 	}
 
 	@Override
 	public Spliterator<E> spliterator() {
-		// TODO Auto-generated method stub
-		return List.super.spliterator();
+		return _list.spliterator();
 	}
 
 }
