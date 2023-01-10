@@ -13,56 +13,50 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 		protected ArrayList<Value> _values;
 
 	@Override
-	public int size() {
-		
-		return 0;
+	public int size() {return _keys.size();
 	}
-
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return _keys.isEmpty();
 	}
 
 	@Override
 	public boolean containsKey(Object key) {
-		// TODO Auto-generated method stub
-		return false;
+		return _keys.contains(key);
 	}
 
 	@Override
 	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
-		return false;
+		return _values.contains(value);
 	}
 
 	@Override
 	public Value get(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		return _values.get(_keys.indexOf(key));
 	}
 
 	@Override
 	public Value put(Key key, Value value) {
-		// TODO Auto-generated method stub
-		return null;
+		_values.add(_keys.indexOf(key), value);
+		return _values.get(_keys.indexOf(key));
 	}
 
 	@Override
 	public Value remove(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		return _values.remove(_keys.indexOf(key));
 	}
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
-		
+		for(Entry<? extends Key, ? extends Value> entry : m.entrySet()) {
+			put(entry.getKey(), entry.getValue());
+		}
 	}
-
+	
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		_keys.clear();
+		_values.clear();
 		
 	}
 
