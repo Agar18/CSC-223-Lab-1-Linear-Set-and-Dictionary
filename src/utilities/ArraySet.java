@@ -11,6 +11,16 @@ import java.util.Spliterator;
 public class ArraySet<E> implements List<E>, Set<E>
 {
 	protected ArrayList<E> _list;
+	
+	public ArraySet()
+	{
+		this(new ArrayList <E>());
+	}
+
+	public ArraySet(ArrayList<E> list) 
+	{
+		_list = list;
+	}
 
 	@Override
 	public int size() {return _list.size();}
@@ -37,16 +47,17 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	@Override
-	public boolean add(E e) {
-		if (this.contains(e))
-			return false;
-		int count = 0;
-		while(count < _list.size() && !(_list.get(count).equals(e))) {
-			count++;
-		}
-		
-		_list.add(count, e);
-		return true;
+	public boolean add(E e) 
+	{
+			if (this.contains(e))
+				return false;
+			int count = 0;
+			while(count < _list.size() && !(_list.get(count).equals(e))) {
+				count++;
+			}
+			
+			_list.add(count, e);
+			return true;
 	}
 
 	@Override
