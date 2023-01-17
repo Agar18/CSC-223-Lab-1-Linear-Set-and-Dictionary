@@ -12,6 +12,17 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 	
 		protected ArraySet<Key> _keys;
 		protected ArrayList<Value> _values;
+		
+		public ParallelArrayDictionary()
+		{
+			this (new ArraySet <Key>(), new ArrayList <Value>());
+		}
+		
+		public ParallelArrayDictionary(ArraySet<Key> keys, ArrayList<Value> values)
+		{
+			_keys = keys;
+			_values = values;
+		}
 
 	@Override
 	public int size() {return _keys.size();
@@ -38,8 +49,20 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 
 	@Override
 	public Value put(Key key, Value value) {
-		_values.add(_keys.indexOf(key), value);
+		if(_keys.contains(key))
+		{
+	
+			_values.set(_keys.indexOf(key),value);		
+		}
+		
+		else
+		{
+			_keys.add(key);
+			_values.add(value);
+		}
+		
 		return _values.get(_keys.indexOf(key));
+		
 	}
 
 	@Override
