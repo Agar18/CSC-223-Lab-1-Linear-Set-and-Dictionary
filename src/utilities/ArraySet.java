@@ -8,6 +8,15 @@ import java.util.ListIterator;
 import java.util.Set;
 import java.util.Spliterator;
 
+/**
+* This class creates an ArraySet of values which will be used in the ParallelArrayDictionary implementation.
+*
+* <p>Bugs: (None found)
+*
+* @author <Alex Gardner, Khalid Ismael>
+* @date <1/18/2023>
+*/
+
 public class ArraySet<E> implements List<E>, Set<E>
 {
 	protected ArrayList<E> _list;

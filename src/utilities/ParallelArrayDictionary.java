@@ -6,6 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+* This class creates a ParallelArrayDictionary from the previous ArraySet class for keys and an ArrayList of values. This class
+* also implements a map to help with this.
+*
+* <p>Bugs: (RemoveMethod)
+*
+* @author <Alex Gardner, Khalid Ismael>
+* @date <1/18/2023>
+*/
+
 public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 {
 
@@ -68,6 +78,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 	@Override
 	public Value remove(Object key) {
 		return _values.remove(_keys.indexOf(key));
+		
 	}
 
 	@Override

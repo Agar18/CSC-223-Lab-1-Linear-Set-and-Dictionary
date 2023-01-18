@@ -10,6 +10,20 @@ class ArraySetTest
 	@Test
 	void testArraySetCollectionOfE()
 	{
+		ArraySet <Integer> a = new ArraySet <Integer>();
+		
+		ArraySet <Integer> b = new ArraySet <Integer>();
+		
+		a.add(4);
+		a.add(2);
+		a.add(5);
+		
+		b.add(1);
+		b.add(4);
+		b.add(6);
+		
+		assertEquals("[4, 2, 5]", a._list.toString());
+		assertEquals("[1, 4, 6]", b._list.toString());
 		
 	}
 

@@ -9,16 +9,19 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testParallelArrayDictionary()
 	{
-		//test one
+		
 		ParallelArrayDictionary<String, Integer> a = new ParallelArrayDictionary<String, Integer>();
+		ParallelArrayDictionary<Integer, Integer> b = new ParallelArrayDictionary<Integer, Integer>();
 		
 		a.put("one", 1);
+		a.put("two", 2);
 	
-		assertEquals(1,a.size());
+		assertEquals(2,a.size());
 		
-		a.put("one", 2);
+		b.put(1, 2);
+		b.put(2, 2);
 		
-		assertEquals(1,a.size());
+		assertEquals(2,b.size());
 		
 		
 		
@@ -59,6 +62,18 @@ class ParallelArrayDictionaryTest
 		a.put("two", 5);
 		
 		assertEquals(5,a.get("two"));
+		
+		ParallelArrayDictionary<Integer, Integer> b = new ParallelArrayDictionary<Integer, Integer>();
+		
+		b.put(1, 2);
+		
+		assertEquals(2,b.get(1));
+		
+		b.put(2, 3);
+		
+		assertEquals(3,b.get(2));
+		
+
 	}
 
 	@Test
@@ -79,6 +94,8 @@ class ParallelArrayDictionaryTest
 		assertEquals(5,a.get("two"));
 		
 		a.remove("two");
+		
+		assertEquals(2,a.size());
 		
 	}
 
