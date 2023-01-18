@@ -6,11 +6,6 @@ import org.junit.jupiter.api.Test;
 
 class ArraySetTest
 {
-	@Test
-	void testArraySetCollectionOfE()
-	{
-		
-	}
 
 	@Test
 	void testAddE()
@@ -24,7 +19,7 @@ class ArraySetTest
 		
 		assertEquals(4,a.size());
 		
-		//assertEquals(12, a.toArray());
+		assertEquals("[5, 2, 1, 3]", a._list.toString());
 		
 		ArraySet <Integer> b = new ArraySet <Integer>();
 		
@@ -55,13 +50,15 @@ class ArraySetTest
 		
 		assertEquals(8,a.size());
 		
-		//assertEquals([1, 2, 3, 4, 5, 6, 7, 8], a.toArray());
+		assertEquals("[1, 2, 3, 4, 5, 6, 7, 8]", a._list.toString());
 		
 		ArraySet <Integer> c = new ArraySet <Integer>();
 		
 		c.addAll(b);
 		
 		assertEquals(4,b.size());
+		
+		assertEquals("[5, 6, 7, 8]", c._list.toString());
 		
 	}
 
@@ -81,9 +78,22 @@ class ArraySetTest
 		b.add(7);
 		b.add(8);
 		
-		a.retainAll(a);
+		a.addAll(b);
+		
+		a.retainAll(b);
 		
 		assertEquals(4,a.size());
+		
+		assertEquals("[5, 6, 7, 8]",a._list.toString());
+		
+		ArraySet <Integer> c = new ArraySet <Integer>();
+		
+		c.addAll(a);
+		
+		c.retainAll(a);
+		
+		assertEquals("[5, 6, 7, 8]",c._list.toString());
+		
 		
 	}
 
@@ -107,6 +117,22 @@ class ArraySetTest
 		
 		assertEquals(0,a.size());
 		
+		a.add(1);
+		a.add(2);
+		a.add(3);
+		a.add(4);
+		
+		b.add(5);
+		b.add(6);
+		b.add(7);
+		b.add(8);
+		
+		a.addAll(b);
+		
+		a.removeAll(b);
+		
+		assertEquals("[1, 2, 3, 4]",a._list.toString());
+		
 		
 	}
 
@@ -126,9 +152,19 @@ class ArraySetTest
 		b.add(7);
 		b.add(8);
 		
-		a.addAll(b);
+		a.addAll(3, b);
 		
-		assertTrue("[1, 2, 3, 4, 5, 6, 7, 8]", a.addAll(b));
+		assertEquals("[1, 2, 3, 5, 6, 7, 8, 4]", a._list.toString());
+		
+		ArraySet <Integer> c = new ArraySet <Integer>();
+		
+		c.addAll(0, b);
+		
+		assertEquals("[5, 6, 7, 8]", c._list.toString());
+		
+		
+		
+		
 		
 		
 		
@@ -149,6 +185,8 @@ class ArraySetTest
 		
 		assertEquals(0,a.size());
 		
+		assertTrue(a.isEmpty());
+		
 		
 		a.add(1);
 		a.add(2);
@@ -165,10 +203,46 @@ class ArraySetTest
 		
 		assertEquals(8,a.size());
 		
+		assertEquals("[1, 2, 3, 4, 5, 6, 7, 8]",a._list.toString());
+
+		
 		a.removeAll(b);
 		
 		assertEquals(4,a.size());
 		
-		
+		assertEquals("[1, 2, 3, 4]",a._list.toString());
 	}
+	
+	@Test
+	void Sublist() 
+	{
+		
+	ArraySet <Integer> a = new ArraySet <Integer>();
+	
+	a.add(1);
+	a.add(2);
+	a.add(3);
+	a.add(4);
+	a.add(5);
+	
+	assertEquals("[1, 2, 3]",a.subList(0, 3).toString());
+	
+	ArraySet <Integer> b = new ArraySet <Integer>();
+	
+	b.add(6);
+	b.add(7);
+	b.add(8);
+	b.add(9);
+	b.add(10);
+	
+	a.addAll(b);
+	
+	assertEquals("[1, 2, 3, 4, 5, 6, 7, 8]",a.subList(0, 8).toString());
+	
+	assertEquals("[]",a.subList(0, 0).toString());
+
+
+	
+	
+}
 }
