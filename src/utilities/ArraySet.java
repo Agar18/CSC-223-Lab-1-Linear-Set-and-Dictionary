@@ -49,6 +49,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean add(E e) 
 	{
+			//check if the element already exist
 			if (this.contains(e))
 				return false;
 			int count = 0;

@@ -77,6 +77,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 			//put keys and values to their arraysets
 			put(entry.getKey(), entry.getValue());
 		}
+		
 	}
 	
 	@Override
@@ -115,7 +116,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key,Value>
 		//create java hash_map set to store the keys and values
 		HashMap<Key, Value> hash_map = new HashMap<Key, Value>();
 		//loop through the set to get index of the arrayset
-		for(int i = 0; i< _values.size()-1; i++) {
+		for(int i = 0; i<= _values.size()-1; i++) {
 			//store both the keys and the value to the hash_map
 			hash_map.put(_keys.get(i), _values.get(i));
 		}
