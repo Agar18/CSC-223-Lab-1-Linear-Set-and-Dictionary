@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 
 class ArraySetTest
 {
+	
+	@Test
+	void testArraySetCollectionOfE()
+	{
+		
+	}
 
 	@Test
 	void testAddE()
@@ -161,11 +167,6 @@ class ArraySetTest
 		c.addAll(0, b);
 		
 		assertEquals("[5, 6, 7, 8]", c._list.toString());
-		
-		
-		
-		
-		
 		
 		
 		
